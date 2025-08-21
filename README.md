@@ -1,52 +1,60 @@
-# Arduino Motion Sensor \& Light Project
+# \# Arduino Smart Light System
 
 # 
 
-# Overview
+# \## Overview
+
+# This project is an Arduino-based smart light system that automatically adjusts lighting based on ambient brightness and motion.  
+
+# It was created as part of my exploration into embedded systems and how thoughtful design can optimize efficiency, functionality, and scalability.
 
 # 
 
-# This is a project that uses an Arduino board to create a smart light. The light automatically turns on when it detects either low light or motion in the area.
+# The system uses:
 
+# \- Arduino Uno  
 
+# \- LDR (light-dependent resistor) to measure ambient brightness  
 
+# \- PIR motion sensor  
 
-
-# Components Used
-
-# 
-
-# \* Arduino Board
-
-# \* LED
-
-# \* 1x 220-ohm Resistor
-
-# \* Light-Dependent Resistor (LDR)
-
-# \* Passive Infrared (PIR) Motion Sensor
-
-# \* Breadboard
-
-# \* Jumper wires
+# \- Relay module + LED lamp   
 
 # 
 
-# 
-
-# \* LED: Connect the anode to digital pin 9. Connect the cathode  to ground via the 220-ohm resistor.
-
-# \* PIR Sensor: VCC pin to 5V, GND pin to GND, and OUT pin to digital pin 2.
-
-# \* LDR: Connect one leg to 5V. Connect the other leg to analog pin A0 and use a 10k-ohm resistor from A0 to GND.
+# The light turns on only when the environment is dark\*and motion is detected, ensuring energy efficiency.
 
 # 
 
-# Code Explanation
+# ---
 
 # 
 
-# The code looks at two conditions to decide when to turn on the LED. A threshold variable is used to define what "low light" is. The LED turns on if either condition is met.
+# \## Motivation
+
+# This project taught me how to balance simplicity with functionality, deciding when to optimize for performance versus compact design.  
+
+# It also served as my entry point into thinking about low-power design and form-factor aware engineering, themes that connect directly to cutting-edge EE research such as MEMS integration.  
+
+# 
+
+# ---
+
+# 
+
+# \## Features
+
+# \- Automatic light control with environmental awareness  
+
+# \- Low-cost and low-power design principles  
+
+# \- Modular structure for easy upgrades (e.g., temperature, humidity, or wireless modules)  
+
+# \- Documented for reproducibility and adaptation  
+
+# 
+
+# ---
 
 # 
 

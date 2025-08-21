@@ -1,25 +1,28 @@
-int ledPin = 9;
-int ldrPin = A0;
-int pirPin = 2;
-int threshold = 500; // Adjust based on light level
+const int LDR_PIN = A0;   // Light sensor pin
+const int PIR_PIN = 2;    // Motion sensor pin
+const int RELAY_PIN = 8;  // Relay / LED pin
 
 void setup() {
-  pinMode(ledPin, OUTPUT);
-  pinMode(pirPin, INPUT);
+  pinMode(PIR_PIN, INPUT);
+  pinMode(RELAY_PIN, OUTPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  int lightLevel = analogRead(ldrPin);
-  int motion = digitalRead(pirPin);
+  int lightLevel = analogRead(LDR_PIN);
+  int motion = digitalRead(PIR_PIN);
 
-  Serial.println("Light: " + String(lightLevel) + " Motion: " + String(motion));
+  // Debugging info
+  Serial.print("Light: ");
+  Serial.print(lightLevel);
+  Serial.print(" | Motion: ");
+  Serial.println(motion);
 
-  if (lightLevel < threshold || motion == HIGH) {
-    digitalWrite(ledPin, HIGH);
+  if (lightLevel < 500 && motion == HIGH) {
+    digitalWrite(RELAY_PIN, HIGH); // Turn on light
   } else {
-    digitalWrite(ledPin, LOW);
+    digitalWrite(RELAY_PIN, LOW);  // Turn off light
   }
 
-  delay(500);
+  delay(200); // small delay for stability
 }
